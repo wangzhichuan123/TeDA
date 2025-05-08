@@ -1,0 +1,20 @@
+# Config for OpenCLIP-L-14 backbone
+esb:
+  fusion_rate: 0.3
+  tau_t: 0.03
+  tau_i: 0.09
+
+ntu:
+  fusion_rate: 0.4
+  tau_t: 0.05
+  tau_i: 0.09
+
+mn40:
+  fusion_rate: 0.2
+  tau_t: 0.03
+  tau_i: 0.14
+
+abo:
+  fusion_rate: 0.5
+  tau_t: 0.04
+  tau_i: 0.09

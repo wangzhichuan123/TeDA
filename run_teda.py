@@ -79,7 +79,7 @@ def test_model_clip_osr3d_feats(
     target_text = torch.tensor(target_text)
     target_text = target_text.cuda()
 
-    fusion_rate = 0.3
+    fusion_rate = args.fusion_rate
     combined_feats_query = query_feats + query_text * fusion_rate
     combined_feats_target = target_feats + target_text * fusion_rate
     tanh = nn.Tanh()
@@ -93,7 +93,6 @@ def test_model_clip_osr3d_feats(
         combined_feats_target,
         query_labels,
         target_labels,
-        fusion_rate,
         eval_all,
     )
 
@@ -121,9 +120,7 @@ def image_opt(feat, init_classifier, plabel, lr=10, iter=2000, tau_i=0.04, alpha
 
 
 @torch.no_grad()
-def retrieval_eval(
-    args, query, target, query_lbls, target_lbls, fusion_rate, eval_all=False
-):
+def retrieval_eval(args, query, target, query_lbls, target_lbls, eval_all=False):
     query_fts = query.squeeze()
     target_fts = target.squeeze()
     query_lbls = query_lbls
@@ -135,8 +132,8 @@ def retrieval_eval(
     query_fts = query_fts.T
     logits = target_fts @ query_fts
 
-    tau_t = 0.03
-    tau_i = 0.09
+    tau_t = args.tau_t
+    tau_i = args.tau_i
     alpha = 0.6
 
     plabel = F.softmax(logits / tau_t, dim=1)
@@ -181,6 +178,23 @@ def main():
     parser.add_argument("--open_clip", default=False)
     parser.add_argument("--n_view", default=24, type=int)
     args = parser.parse_args()
+
+    # 加载 config.yaml
+    with open("config.yaml", "r") as f:
+        config = yaml.safe_load(f)
+
+    # 获取当前数据集的参数
+    dataset_cfg = config.get(args.dataset)
+    if dataset_cfg is None:
+        raise ValueError(f"Config for dataset '{args.dataset}' not found!")
+
+    # 添加参数到 args 中
+    args.fusion_rate = dataset_cfg["fusion_rate"]
+    args.tau_t = dataset_cfg["tau_t"]
+    args.tau_i = dataset_cfg["tau_i"]
+
+    print(f"Loaded config for {args.dataset}: {dataset_cfg}")
+
     print(args)
 
     setup_seed()

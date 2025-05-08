@@ -75,7 +75,12 @@ python run_teda.py --dataset esb
 Thanks for citing our paper:
 
 ```
-
+@article{wang2025teda,
+  title={TeDA: Boosting Vision-Lanuage Models for Zero-Shot 3D Object Retrieval via Testing-time Distribution Alignment},
+  author={Wang, Zhichuan and Zhou, Yang and Xiang, Jinhai and Wang, Yulong and He, Xinwei},
+  journal={arXiv preprint arXiv:2505.02325},
+  year={2025}
+}
 ```
 
 ## Acknowledgement
