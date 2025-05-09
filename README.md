@@ -1,11 +1,11 @@
-# TeDA: Boosting Vision-Lanuage Models for Zero-Shot 3D Object Retrieval via Testing-time Distribution Alignment
+# TeDA: Boosting Vision-Lanuage Models for Zero-Shot 3D Object Retrieval via Testing-time Distribution Alignment [![arXiv](https://img.shields.io/badge/arXiv-2505.02325-b31b1b.svg)](https://arxiv.org/pdf/2505.02325)
 
 Zhichuan Wang<sup>1</sup>, <a href="https://scholar.google.com/citations?user=9oXvA2IAAAAJ&hl=zh-CN&oi=sra">Yang Zhou</a><sup>2</sup>, <a href="https://scholar.google.com/citations?hl=zh-CN&user=z4YTksIAAAAJ">Jinhai Xiang</a><sup>1</sup>, <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=CplmfKMAAAAJ&sortby=pubdate">Yulong Wang*</a><sup>1</sup>, <a href="https://scholar.google.com/citations?user=YSIe_24AAAAJ&hl=zh-CN&oi=sra">Xinwei He*</a><sup>1</sup>
 
 <sup>1</sup>Huazhong Agricultural University  <sup>2</sup>Shenzhen University
 
 
-**🚀🚀🚀TeDA has been accepted to the ICMR2025-Full Papers track at the ICMR 2025 conference🚀🚀🚀**
+**🚀🚀🚀TeDA has been accepted to International Conference on Multimedia Retrieval (ICMR) 2025.🚀🚀🚀**
 
 
 Abstract: *Learning discriminative 3D representations that generalize well to unknown testing categories is an emerging requirement for many real-world 3D applications.
